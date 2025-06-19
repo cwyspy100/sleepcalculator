@@ -1,0 +1,70 @@
+{
+  "title": "Sleep Calculator - Scientific Sleep Time Optimization",
+  "logo": "Sleep Calculator",
+  "subtitle": "Scientifically calculate optimal sleep times for refreshed mornings",
+  "tabs": {
+    "bedtime": "Calculate Bedtime",
+    "wakeup": "Calculate Wake-up Time"
+  },
+  "bedtime": {
+    "title": "What time do you want to wake up?",
+    "calculate": "Calculate Bedtime",
+    "results": {
+      "title": "Recommended Bedtime",
+      "primary": "Best Time",
+      "secondary": "Alternative Time",
+      "optimal": "7.5 hours sleep",
+      "min": "6 hours sleep",
+      "max": "9 hours sleep"
+    }
+  },
+  "wakeup": {
+    "title": "If you want to go to bed now...",
+    "currentTime": "Current time: ",
+    "calculate": "Calculate Wake-up Time",
+    "results": {
+      "title": "Recommended Wake-up Time",
+      "primary": "Best Time",
+      "secondary": "Alternative Time",
+      "optimal": "7.5 hours sleep",
+      "min": "6 hours sleep",
+      "max": "9 hours sleep"
+    }
+  },
+  "quickTimes": {
+    "6:00": "6:00",
+    "6:30": "6:30",
+    "7:00": "7:00",
+    "7:30": "7:30"
+  },
+  "sleepInfo": {
+    "fallAsleep": "💡 Average time to fall asleep is 15 minutes",
+    "cycles": "🌙 Recommended 5-6 complete sleep cycles (90 minutes each)",
+    "wakeupCycles": "💡 Wake up at these times to rise between complete sleep cycles",
+    "goodSleep": "🌙 Good sleep consists of 5-6 complete sleep cycles"
+  },
+  "infoSection": {
+    "title": "About Sleep Cycles",
+    "cycles": {
+      "title": "🌙 Sleep Cycles",
+      "description": "Human sleep consists of 90-minute cycles including light sleep, deep sleep, and REM stages."
+    },
+    "duration": {
+      "title": "⏰ Optimal Sleep Duration",
+      "description": "Adults should sleep 7-9 hours per night, equivalent to 5-6 complete sleep cycles."
+    },
+    "fallAsleep": {
+      "title": "😴 Time to Fall Asleep",
+      "description": "Most people need 10-20 minutes to fall asleep, recommend allowing 15 minutes."
+    },
+    "wakeup": {
+      "title": "🌅 Wake-up Timing",
+      "description": "Waking at the end of a sleep cycle will make you feel more alert and energized."
+    }
+  },
+  "footer": "© 2024 Sleep Calculator | Sleep optimization tool based on scientific research",
+  "language": "Language",
+  "alerts": {
+    "selectTime": "Please select a wake-up time"
+  }
+} 

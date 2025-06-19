@@ -1,0 +1,70 @@
+{
+  "title": "睡眠计算器 - 科学计算最佳睡眠时间",
+  "logo": "睡眠计算器",
+  "subtitle": "科学计算最佳睡眠时间，让您醒来时精力充沛",
+  "tabs": {
+    "bedtime": "计算就寝时间",
+    "wakeup": "计算起床时间"
+  },
+  "bedtime": {
+    "title": "您想什么时候起床？",
+    "calculate": "计算就寝时间",
+    "results": {
+      "title": "建议就寝时间",
+      "primary": "最佳时间",
+      "secondary": "备选时间",
+      "optimal": "7.5小时睡眠",
+      "min": "6小时睡眠",
+      "max": "9小时睡眠"
+    }
+  },
+  "wakeup": {
+    "title": "如果您现在睡觉...",
+    "currentTime": "当前时间：",
+    "calculate": "计算起床时间",
+    "results": {
+      "title": "建议起床时间",
+      "primary": "最佳时间",
+      "secondary": "备选时间",
+      "optimal": "7.5小时睡眠",
+      "min": "6小时睡眠",
+      "max": "9小时睡眠"
+    }
+  },
+  "quickTimes": {
+    "6:00": "6:00",
+    "6:30": "6:30",
+    "7:00": "7:00",
+    "7:30": "7:30"
+  },
+  "sleepInfo": {
+    "fallAsleep": "💡 平均入睡时间为15分钟",
+    "cycles": "🌙 建议睡眠5-6个完整的睡眠周期（每个周期90分钟）",
+    "wakeupCycles": "💡 在这些时间起床，您将在完整的睡眠周期之间醒来",
+    "goodSleep": "🌙 良好的睡眠包含5-6个完整的睡眠周期"
+  },
+  "infoSection": {
+    "title": "关于睡眠周期",
+    "cycles": {
+      "title": "🌙 睡眠周期",
+      "description": "人类睡眠由90分钟的周期组成，包括浅睡、深睡和REM睡眠阶段。"
+    },
+    "duration": {
+      "title": "⏰ 最佳睡眠时长",
+      "description": "成年人建议每晚睡7-9小时，相当于5-6个完整的睡眠周期。"
+    },
+    "fallAsleep": {
+      "title": "😴 入睡时间",
+      "description": "大多数人需要10-20分钟才能入睡，建议预留15分钟。"
+    },
+    "wakeup": {
+      "title": "🌅 起床时机",
+      "description": "在睡眠周期结束时醒来，会感觉更加清醒和精力充沛。"
+    }
+  },
+  "footer": "© 2024 睡眠计算器 | 基于科学研究的睡眠优化工具",
+  "language": "语言",
+  "alerts": {
+    "selectTime": "请选择起床时间"
+  }
+} 

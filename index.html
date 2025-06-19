@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Sleep Calculator - Scientific Sleep Time Optimization</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">English</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                </div>
+            </div>
+            <h1 class="logo" data-i18n="logo">Sleep Calculator</h1>
+            <p class="subtitle" data-i18n="subtitle">Scientifically calculate optimal sleep times for refreshed mornings</p>
+        </header>
+
+        <main class="main-content">
+            <div class="calculator-container">
+                <div class="calculator-tabs">
+                    <button class="tab-btn active" data-tab="bedtime" data-i18n="tabs.bedtime">Calculate Bedtime</button>
+                    <button class="tab-btn" data-tab="wakeup" data-i18n="tabs.wakeup">Calculate Wake-up Time</button>
+                </div>
+
+                <!-- 就寝时间计算器 -->
+                <div class="calculator-panel active" id="bedtime-panel">
+                    <div class="input-section">
+                        <h2 data-i18n="bedtime.title">What time do you want to wake up?</h2>
+                        <div class="time-input-group">
+                            <input type="time" id="wakeup-time" class="time-input" value="06:30">
+                            <div class="quick-buttons">
+                                <button class="quick-btn" data-time="06:00" data-i18n="quickTimes.6:00">6:00</button>
+                                <button class="quick-btn" data-time="06:30" data-i18n="quickTimes.6:30">6:30</button>
+                                <button class="quick-btn" data-time="07:00" data-i18n="quickTimes.7:00">7:00</button>
+                                <button class="quick-btn" data-time="07:30" data-i18n="quickTimes.7:30">7:30</button>
+                            </div>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateBedtime()" data-i18n="bedtime.calculate">Calculate Bedtime</button>
+                    </div>
+
+                    <div class="results-section" id="bedtime-results" style="display: none;">
+                        <h3 data-i18n="bedtime.results.title">Recommended Bedtime</h3>
+                        <div class="sleep-times">
+                            <div class="sleep-time primary">
+                                <span class="time-label" data-i18n="bedtime.results.primary">Best Time</span>
+                                <span class="time-value" id="primary-bedtime"></span>
+                                <span class="time-desc" data-i18n="bedtime.results.optimal">7.5 hours sleep</span>
+                            </div>
+                            <div class="sleep-time secondary">
+                                <span class="time-label" data-i18n="bedtime.results.secondary">Alternative Time</span>
+                                <span class="time-value" id="secondary-bedtime"></span>
+                                <span class="time-desc" data-i18n="bedtime.results.min">6 hours sleep</span>
+                            </div>
+                            <div class="sleep-time secondary">
+                                <span class="time-label" data-i18n="bedtime.results.secondary">Alternative Time</span>
+                                <span class="time-value" id="tertiary-bedtime"></span>
+                                <span class="time-desc" data-i18n="bedtime.results.max">9 hours sleep</span>
+                            </div>
+                        </div>
+                        <div class="sleep-info">
+                            <p data-i18n="sleepInfo.fallAsleep">💡 Average time to fall asleep is 15 minutes</p>
+                            <p data-i18n="sleepInfo.cycles">🌙 Recommended 5-6 complete sleep cycles (90 minutes each)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 起床时间计算器 -->
+                <div class="calculator-panel" id="wakeup-panel">
+                    <div class="input-section">
+                        <h2 data-i18n="wakeup.title">If you want to go to bed now...</h2>
+                        <div class="current-time-display">
+                            <span data-i18n="wakeup.currentTime">Current time: </span>
+                            <span id="current-time"></span>
+                        </div>
+                        <button class="calculate-btn" onclick="calculateWakeup()" data-i18n="wakeup.calculate">Calculate Wake-up Time</button>
+                    </div>
+
+                    <div class="results-section" id="wakeup-results" style="display: none;">
+                        <h3 data-i18n="wakeup.results.title">Recommended Wake-up Time</h3>
+                        <div class="sleep-times">
+                            <div class="sleep-time primary">
+                                <span class="time-label" data-i18n="wakeup.results.primary">Best Time</span>
+                                <span class="time-value" id="primary-wakeup"></span>
+                                <span class="time-desc" data-i18n="wakeup.results.optimal">7.5 hours sleep</span>
+                            </div>
+                            <div class="sleep-time secondary">
+                                <span class="time-label" data-i18n="wakeup.results.secondary">Alternative Time</span>
+                                <span class="time-value" id="secondary-wakeup"></span>
+                                <span class="time-desc" data-i18n="wakeup.results.min">6 hours sleep</span>
+                            </div>
+                            <div class="sleep-time secondary">
+                                <span class="time-label" data-i18n="wakeup.results.secondary">Alternative Time</span>
+                                <span class="time-value" id="tertiary-wakeup"></span>
+                                <span class="time-desc" data-i18n="wakeup.results.max">9 hours sleep</span>
+                            </div>
+                        </div>
+                        <div class="sleep-info">
+                            <p data-i18n="sleepInfo.wakeupCycles">💡 Wake up at these times to rise between complete sleep cycles</p>
+                            <p data-i18n="sleepInfo.goodSleep">🌙 Good sleep consists of 5-6 complete sleep cycles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3 data-i18n="infoSection.title">About Sleep Cycles</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4 data-i18n="infoSection.cycles.title">🌙 Sleep Cycles</h4>
+                        <p data-i18n="infoSection.cycles.description">Human sleep consists of 90-minute cycles including light sleep, deep sleep, and REM stages.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4 data-i18n="infoSection.duration.title">⏰ Optimal Sleep Duration</h4>
+                        <p data-i18n="infoSection.duration.description">Adults should sleep 7-9 hours per night, equivalent to 5-6 complete sleep cycles.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4 data-i18n="infoSection.fallAsleep.title">😴 Time to Fall Asleep</h4>
+                        <p data-i18n="infoSection.fallAsleep.description">Most people need 10-20 minutes to fall asleep, recommend allowing 15 minutes.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4 data-i18n="infoSection.wakeup.title">🌅 Wake-up Timing</h4>
+                        <p data-i18n="infoSection.wakeup.description">Waking at the end of a sleep cycle will make you feel more alert and energized.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p data-i18n="footer">© 2024 Sleep Calculator | Sleep optimization tool based on scientific research</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
