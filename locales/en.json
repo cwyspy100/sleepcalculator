@@ -1,5 +1,6 @@
 {
-  "title": "Sleep Calculator - Scientific Sleep Time Optimization",
+  "title": "Sleep Calculator - Scientific Sleep Time Optimization | Free Online Tool",
+  "description": "Free online sleep calculator that scientifically determines optimal bedtime and wake-up times based on sleep cycles. Get personalized sleep recommendations for better rest and energy.",
   "logo": "Sleep Calculator",
   "subtitle": "Scientifically calculate optimal sleep times for refreshed mornings",
   "tabs": {
@@ -60,6 +61,37 @@
     "wakeup": {
       "title": "🌅 Wake-up Timing",
       "description": "Waking at the end of a sleep cycle will make you feel more alert and energized."
+    }
+  },
+  "seoContent": {
+    "howToUse": {
+      "title": "How to Use Our Free Sleep Calculator",
+      "description": "Our sleep calculator is a free online tool that helps you determine the optimal bedtime or wake-up time based on scientific sleep cycle research. Simply enter your desired wake-up time or use the current time to calculate when you should go to bed for the best sleep quality."
+    },
+    "sleepCycles": {
+      "title": "Why Sleep Cycles Matter",
+      "description": "Sleep cycles are crucial for quality rest. Each cycle lasts approximately 90 minutes and includes different stages of sleep. Waking up at the end of a complete cycle helps you feel more refreshed and alert. Our calculator ensures you wake up between complete sleep cycles rather than in the middle of deep sleep."
+    },
+    "benefits": {
+      "title": "Sleep Calculator Benefits",
+      "items": [
+        "Scientific accuracy: Based on 90-minute sleep cycle research",
+        "Multiple options: Choose from 6, 7.5, or 9 hours of sleep",
+        "Easy to use: Simple interface with quick time selection",
+        "Free tool: No registration or payment required",
+        "Mobile friendly: Works on all devices"
+      ]
+    },
+    "sleepHygiene": {
+      "title": "Sleep Hygiene Tips",
+      "description": "For the best results with our sleep calculator, follow these sleep hygiene practices:",
+      "tips": [
+        "Maintain a consistent sleep schedule",
+        "Create a relaxing bedtime routine",
+        "Keep your bedroom cool, dark, and quiet",
+        "Avoid screens 1 hour before bedtime",
+        "Limit caffeine and alcohol intake"
+      ]
     }
   },
   "footer": "© 2024 Sleep Calculator | Sleep optimization tool based on scientific research",

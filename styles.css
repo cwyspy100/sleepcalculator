@@ -6,10 +6,90 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d1b69 100%);
     min-height: 100vh;
     color: #333;
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 夜空背景效果 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #ddd, transparent),
+        radial-gradient(1px 1px at 200px 60px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 240px 90px, #fff, transparent),
+        radial-gradient(2px 2px at 280px 40px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 320px 70px, #eee, transparent),
+        radial-gradient(1px 1px at 360px 30px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 400px 80px, #fff, transparent),
+        radial-gradient(1px 1px at 440px 50px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 480px 90px, #ddd, transparent),
+        radial-gradient(2px 2px at 520px 30px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 560px 70px, #fff, transparent),
+        radial-gradient(1px 1px at 600px 40px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 640px 80px, #eee, transparent),
+        radial-gradient(1px 1px at 680px 50px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 720px 90px, #fff, transparent),
+        radial-gradient(2px 2px at 760px 30px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 800px 70px, #ddd, transparent),
+        radial-gradient(1px 1px at 840px 40px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 880px 80px, #fff, transparent),
+        radial-gradient(1px 1px at 920px 50px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 960px 90px, #eee, transparent),
+        radial-gradient(2px 2px at 1000px 30px, rgba(255,255,255,0.8), transparent);
+    background-repeat: repeat;
+    background-size: 1000px 100px;
+    animation: twinkle 4s ease-in-out infinite;
+    z-index: -1;
+}
+
+/* 月亮效果 */
+body::after {
+    content: '🌙';
+    position: fixed;
+    top: 50px;
+    right: 80px;
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: moonGlow 3s ease-in-out infinite;
+    z-index: -1;
+}
+
+/* 星星闪烁动画 */
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* 月亮发光动画 */
+@keyframes moonGlow {
+    0%, 100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
 }
 
 .container {
@@ -89,8 +169,8 @@ body {
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 40px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .calculator-tabs {
@@ -117,7 +197,7 @@ body {
 
 .tab-btn.active {
     background: white;
-    color: #667eea;
+    color: #2d1b69;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -192,7 +272,7 @@ body {
 }
 
 .calculate-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2d1b69 0%, #4a2b8a 100%);
     color: white;
     border: none;
     padding: 15px 40px;
@@ -201,12 +281,13 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 15px rgba(45, 27, 105, 0.3);
 }
 
 .calculate-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(45, 27, 105, 0.4);
+    background: linear-gradient(135deg, #4a2b8a 0%, #6b3fa3 100%);
 }
 
 .current-time-display {
@@ -471,4 +552,187 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #5a6fd8;
+}
+
+/* SEO和可访问性样式 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* SEO内容区域样式 */
+.seo-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.seo-text h3 {
+    color: #333;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 25px 0 15px 0;
+    line-height: 1.4;
+}
+
+.seo-text h3:first-child {
+    margin-top: 0;
+}
+
+.seo-text p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.seo-text ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.seo-text li {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.seo-text strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* 改进的页脚样式 */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+/* 语义化标签样式 */
+section {
+    margin-bottom: 40px;
+}
+
+article {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* 响应式SEO内容 */
+@media (max-width: 768px) {
+    .seo-content {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .seo-text h3 {
+        font-size: 1.2rem;
+        margin: 20px 0 12px 0;
+    }
+    
+    .seo-text p {
+        font-size: 0.95rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .seo-content {
+        padding: 15px;
+    }
+    
+    .seo-text h3 {
+        font-size: 1.1rem;
+    }
+    
+    .seo-text p {
+        font-size: 0.9rem;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .header-top,
+    .language-switcher,
+    .calculator-tabs,
+    .quick-buttons,
+    .calculate-btn {
+        display: none !important;
+    }
+    
+    .calculator-container,
+    .info-section,
+    .seo-content {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .container {
+        max-width: none;
+        padding: 0;
+    }
 } 

@@ -1,3 +1,35 @@
+// Service Worker Registration for PWA
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
+
+// SEO and Analytics
+function trackEvent(eventName, eventData = {}) {
+    // Google Analytics 4 event tracking
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, eventData);
+    }
+    
+    // Custom event tracking
+    console.log('Event tracked:', eventName, eventData);
+}
+
+// Page load tracking
+document.addEventListener('DOMContentLoaded', () => {
+    trackEvent('page_view', {
+        page_title: document.title,
+        page_location: window.location.href
+    });
+});
+
 // 多语言支持类
 class I18n {
     constructor() {
@@ -116,6 +148,12 @@ class I18n {
         
         // 保存语言偏好
         localStorage.setItem('preferredLanguage', lang);
+        
+        // 跟踪语言切换事件
+        trackEvent('language_switch', {
+            language: lang,
+            previous_language: this.currentLang
+        });
         
         // 触发自定义事件，通知其他组件语言已切换
         window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
@@ -425,6 +463,13 @@ function calculateBedtime() {
         behavior: 'smooth', 
         block: 'nearest' 
     });
+    
+    // 跟踪计算事件
+    trackEvent('calculate_bedtime', {
+        wakeup_time: wakeupTime,
+        primary_bedtime: sleepCalculator.formatTimeDisplay(results.primary),
+        language: i18n.getCurrentLanguage()
+    });
 }
 
 // 计算起床时间
@@ -448,6 +493,13 @@ function calculateWakeup() {
     document.getElementById('wakeup-results').scrollIntoView({ 
         behavior: 'smooth', 
         block: 'nearest' 
+    });
+    
+    // 跟踪计算事件
+    trackEvent('calculate_wakeup', {
+        current_time: sleepCalculator.formatTimeDisplay(now),
+        primary_wakeup: sleepCalculator.formatTimeDisplay(results.primary),
+        language: i18n.getCurrentLanguage()
     });
 }
 
