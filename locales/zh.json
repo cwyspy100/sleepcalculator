@@ -98,5 +98,6 @@
   "language": "语言",
   "alerts": {
     "selectTime": "请选择起床时间"
-  }
+  },
+  "returnBtn": "返回结算界面"
 } 

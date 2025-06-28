@@ -165,7 +165,10 @@ class I18n {
             const key = element.getAttribute('data-i18n');
             const translation = this.getTranslation(key);
             if (translation) {
-                if (element.tagName === 'INPUT' && element.type === 'placeholder') {
+                // 针对带图标的按钮，优先只替换带data-i18n的span的textContent
+                if (element.tagName === 'SPAN' && element.parentElement && element.parentElement.classList.contains('return-btn')) {
+                    element.textContent = translation;
+                } else if (element.tagName === 'INPUT' && element.type === 'placeholder') {
                     element.placeholder = translation;
                 } else {
                     element.textContent = translation;
@@ -559,4 +562,41 @@ if ('performance' in window) {
             console.log('页面加载时间:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
         }, 0);
     });
+}
+
+// 星空动画：随机星星分布、大小、闪烁
+function createStars(numStars = 60) {
+  const starfield = document.getElementById('starfield');
+  if (!starfield) return;
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  starfield.innerHTML = '';
+  for (let i = 0; i < numStars; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    // 随机大小（2~5px）
+    const size = Math.random() * 3 + 2;
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    // 随机位置
+    star.style.left = `${Math.random() * width}px`;
+    star.style.top = `${Math.random() * height}px`;
+    // 随机动画时长（1.5~4s）
+    star.style.animationDuration = `${Math.random() * 2.5 + 1.5}s`;
+    // 随机延迟
+    star.style.animationDelay = `${Math.random() * 4}s`;
+    starfield.appendChild(star);
+  }
+}
+window.addEventListener('DOMContentLoaded', () => createStars(60));
+window.addEventListener('resize', () => createStars(60));
+
+function returnToInput(type) {
+    if (type === 'bedtime') {
+        document.getElementById('bedtime-results').style.display = 'none';
+    } else if (type === 'wakeup') {
+        document.getElementById('wakeup-results').style.display = 'none';
+    }
+    // 滚动到顶部输入区
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 } 

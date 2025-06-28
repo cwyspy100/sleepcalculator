@@ -98,5 +98,6 @@
   "language": "Language",
   "alerts": {
     "selectTime": "Please select a wake-up time"
-  }
+  },
+  "returnBtn": "Back to Calculator"
 } 

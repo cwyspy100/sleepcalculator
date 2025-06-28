@@ -173,36 +173,50 @@ body::after {
     border: 1px solid rgba(255,255,255,0.3);
 }
 
+.input-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 .calculator-tabs {
     display: flex;
-    gap: 10px;
+    gap: 0;
     margin-bottom: 30px;
     background: #f8f9fa;
     padding: 5px;
     border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .tab-btn {
     flex: 1;
-    padding: 12px 20px;
+    padding: 14px 0;
     border: none;
     background: transparent;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 10px;
+    font-size: 1.08rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
-    color: #666;
+    color: #888;
+    transition: all 0.25s cubic-bezier(.4,0,.2,1);
+    position: relative;
+    z-index: 1;
+    margin: 0 2px;
 }
 
 .tab-btn.active {
-    background: white;
+    background: #fff;
     color: #2d1b69;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(45,27,105,0.08);
+    border: 2px solid #2d1b69;
+    border-bottom: 3px solid #4a2b8a;
+    z-index: 2;
 }
 
-.tab-btn:hover:not(.active) {
-    background: rgba(255,255,255,0.5);
+.tab-btn:not(.active):hover {
+    background: #f0f0f7;
+    color: #4a2b8a;
 }
 
 .calculator-panel {
@@ -213,62 +227,54 @@ body::after {
     display: block;
 }
 
-.input-section {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
 .input-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: 600;
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: #222;
+    letter-spacing: 0.5px;
 }
 
 .time-input-group {
-    margin-bottom: 25px;
+    margin-bottom: 32px;
 }
 
 .time-input {
     font-size: 1.5rem;
-    padding: 15px 20px;
-    border: 2px solid #e1e5e9;
+    padding: 16px 24px;
     border-radius: 12px;
-    background: white;
-    color: #333;
-    font-weight: 500;
-    margin-bottom: 15px;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .time-input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #2d1b69;
+    box-shadow: 0 0 0 3px rgba(45, 27, 105, 0.1);
 }
 
 .quick-buttons {
     display: flex;
-    gap: 10px;
+    gap: 18px;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 .quick-btn {
-    padding: 8px 16px;
-    border: 1px solid #e1e5e9;
-    background: white;
+    padding: 10px 18px;
+    font-size: 1rem;
     border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    color: #666;
+    font-weight: 600;
+    margin-bottom: 4px;
 }
 
 .quick-btn:hover {
-    background: #667eea;
+    background: #2d1b69;
     color: white;
-    border-color: #667eea;
+    border-color: #2d1b69;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(45, 27, 105, 0.3);
 }
 
 .calculate-btn {
@@ -301,10 +307,8 @@ body::after {
 }
 
 .results-section {
-    background: #f8f9fa;
-    border-radius: 16px;
-    padding: 25px;
-    margin-top: 30px;
+    padding: 12px 0 8px 0;
+    margin: 0;
 }
 
 .results-section h3 {
@@ -316,54 +320,65 @@ body::after {
 }
 
 .sleep-times {
-    display: grid;
-    gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 6px;
+    gap: 6px;
 }
 
 .sleep-time {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px;
+    border-radius: 10px;
     text-align: center;
-    border: 2px solid transparent;
+    margin-bottom: 6px;
+    border: 1px solid rgba(255,255,255,0.3);
     transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .sleep-time.primary {
-    border-color: #667eea;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, rgba(45, 27, 105, 0.1) 0%, rgba(74, 43, 138, 0.1) 100%);
+    border: 2px solid rgba(45, 27, 105, 0.3);
+    box-shadow: 0 8px 25px rgba(45, 27, 105, 0.2);
+    color: #2d1b69;
+}
+
+.sleep-time.primary .time-label,
+.sleep-time.primary .time-desc {
+    color: #666;
 }
 
 .sleep-time.secondary {
-    border-color: #e1e5e9;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(45, 27, 105, 0.2);
 }
 
 .sleep-time:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .time-label {
     display: block;
     font-size: 0.9rem;
-    font-weight: 500;
+    color: #666;
     margin-bottom: 5px;
-    opacity: 0.8;
+    font-weight: 500;
 }
 
 .time-value {
     display: block;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 800;
+    color: #2d1b69;
     margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
 .time-desc {
-    display: block;
-    font-size: 0.9rem;
-    opacity: 0.8;
+    font-size: 0.75rem;
+    color: #888;
+    font-weight: 400;
+    margin: 2px 0;
 }
 
 .sleep-info {
@@ -371,11 +386,13 @@ body::after {
     padding: 20px;
     border-radius: 12px;
     border-left: 4px solid #667eea;
+    margin-top: 4px;
+    margin-bottom: 0;
 }
 
 .sleep-info p {
     margin-bottom: 8px;
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     color: #666;
 }
 
@@ -388,15 +405,16 @@ body::after {
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .info-section h3 {
     text-align: center;
+    font-size: 1.3rem;
     margin-bottom: 30px;
-    font-size: 1.8rem;
-    color: #333;
+    color: #2d1b69;
     font-weight: 600;
 }
 
@@ -407,27 +425,29 @@ body::after {
 }
 
 .info-card {
-    background: #f8f9fa;
+    background: rgba(255, 255, 255, 0.9);
     padding: 25px;
-    border-radius: 16px;
-    border: 1px solid #e1e5e9;
-    transition: all 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 .info-card h4 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-    color: #333;
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+    color: #2d1b69;
     font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .info-card p {
-    color: #666;
+    color: #555;
     line-height: 1.6;
 }
 
@@ -483,7 +503,7 @@ body::after {
     }
     
     .time-value {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     
     .language-switcher {
@@ -501,17 +521,18 @@ body::after {
     }
     
     .input-section h2 {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
     
     .time-input {
-        font-size: 1.2rem;
-        padding: 12px 15px;
+        font-size: 1rem;
+        padding: 8px 6px;
     }
     
     .calculate-btn {
-        padding: 12px 30px;
-        font-size: 1rem;
+        font-size: 0.9rem;
+        width: 100%;
+        padding: 10px 0;
     }
     
     .lang-btn {
@@ -574,8 +595,8 @@ body::after {
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 40px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .seo-text h3 {
@@ -735,4 +756,66 @@ article:hover {
         max-width: none;
         padding: 0;
     }
+}
+
+#starfield {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: -2;
+  overflow: hidden;
+}
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.7;
+  animation: twinkle 2s infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.return-btn {
+    display: block;
+    margin: 10px auto 0 auto;
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #2d1b69 0%, #4a2b8a 100%);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(45,27,105,0.13);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+.return-btn:hover {
+    background: linear-gradient(135deg, #4a2b8a 0%, #6b3fa3 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.calculate-bedtime-btn {
+    background: linear-gradient(135deg, #2d1b69 0%, #4a2b8a 100%);
+    color: #fff;
+}
+.calculate-bedtime-btn:hover {
+    background: linear-gradient(135deg, #4a2b8a 0%, #6b3fa3 100%);
+}
+
+.calculate-wakeup-btn {
+    background: linear-gradient(135deg, #1e8e6e 0%, #3ec6a8 100%);
+    color: #fff;
+}
+.calculate-wakeup-btn:hover {
+    background: linear-gradient(135deg, #3ec6a8 0%, #1e8e6e 100%);
+}
+
+.return-icon {
+    font-size: 1.1em;
+    margin-right: 6px;
+    vertical-align: middle;
+    display: inline-block;
 } 

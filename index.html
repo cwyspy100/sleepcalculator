@@ -137,6 +137,7 @@
     </script>
 </head>
 <body>
+    <div id="starfield"></div>
     <div class="container">
         <header class="header" role="banner">
             <div class="header-top">
@@ -172,7 +173,7 @@
                                     <button class="quick-btn" data-time="07:30" data-i18n="quickTimes.7:30">7:30</button>
                                 </div>
                             </div>
-                            <button class="calculate-btn" onclick="calculateBedtime()" data-i18n="bedtime.calculate" aria-describedby="bedtime-description">Calculate Bedtime</button>
+                            <button class="calculate-btn" onclick="calculateBedtime()" data-i18n="bedtime.calculate">Calculate Bedtime</button>
                             <p id="bedtime-description" class="sr-only">Calculate the optimal bedtime based on your desired wake-up time and sleep cycles</p>
                         </div>
 
@@ -199,6 +200,7 @@
                                 <p data-i18n="sleepInfo.fallAsleep">💡 Average time to fall asleep is 15 minutes</p>
                                 <p data-i18n="sleepInfo.cycles">🌙 Recommended 5-6 complete sleep cycles (90 minutes each)</p>
                             </div>
+                            <button class="return-btn" onclick="returnToInput('bedtime')"><span class="return-icon">←</span><span data-i18n="returnBtn">Back to Calculator</span></button>
                         </div>
                     </div>
 
@@ -210,7 +212,7 @@
                                 <span data-i18n="wakeup.currentTime">Current time: </span>
                                 <span id="current-time"></span>
                             </div>
-                            <button class="calculate-btn" onclick="calculateWakeup()" data-i18n="wakeup.calculate" aria-describedby="wakeup-description">Calculate Wake-up Time</button>
+                            <button class="calculate-btn" onclick="calculateWakeup()" data-i18n="wakeup.calculate">Calculate Wake-up Time</button>
                             <p id="wakeup-description" class="sr-only">Calculate the optimal wake-up time based on your current bedtime and sleep cycles</p>
                         </div>
 
@@ -237,6 +239,7 @@
                                 <p data-i18n="sleepInfo.wakeupCycles">💡 Wake up at these times to rise between complete sleep cycles</p>
                                 <p data-i18n="sleepInfo.goodSleep">🌙 Good sleep consists of 5-6 complete sleep cycles</p>
                             </div>
+                            <button class="return-btn" onclick="returnToInput('wakeup')"><span class="return-icon">←</span><span data-i18n="returnBtn">Back to Calculator</span></button>
                         </div>
                     </div>
                 </div>
@@ -312,7 +315,6 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>Email: cwyspy100@gmail.com</p>
                 </div>
             </div>
             <div class="footer-bottom">
